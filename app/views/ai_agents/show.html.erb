@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @ai_agent %>
+
+<div>
+  <%= link_to "Edit this AI agent", edit_ai_agent_path(@ai_agent) %> |
+  <%= link_to "Back to AI agents", ai_agents_path %>
+
+  <%= button_to "Destroy this AI agent", @ai_agent, method: :delete %>
+</div>

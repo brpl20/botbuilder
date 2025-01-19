@@ -1,0 +1,22 @@
+<div id="<%= dom_id ai_agent %>">
+  <p>
+    <strong>Name:</strong>
+    <%= ai_agent.name %>
+  </p>
+
+  <p>
+    <strong>Persona:</strong>
+    <%= ai_agent.persona %>
+  </p>
+
+  <% if ai_agent.instructions.any? %>
+    <h3>Instructions:</h3>
+    <ul>
+      <% ai_agent.instructions.each do |instruction| %>
+        <li><%= instruction.content %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No instructions available.</p>
+  <% end %>
+</div>
