@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   resources :ai_agents
   resource :session
   resources :passwords, param: :token
-  get "dashboard", to: "home#dashboard"
+  get "dashboard", to: "home#dashboard", as: :home_dashboard
+  get "home/index", to: "home#index", as: :home_index
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
