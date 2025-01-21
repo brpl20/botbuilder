@@ -12,10 +12,10 @@ class AiAgentsController < ApplicationController
       format.html
       format.json do
         render json: @ai_agent.as_json(
-          include: { 
-            instructions: { only: [:id, :content] } 
-          },
-          except: [:created_at, :updated_at]
+          include: {
+            instructions: { only: [ :id, :content ] }
+                   },
+          except: [ :created_at, :updated_at ]
         )
       end
     end
@@ -78,6 +78,6 @@ class AiAgentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ai_agent_params
-      params.require(:ai_agent).permit(:name, :persona, instructions_attributes: [:id, :content, :_destroy])
+      params.require(:ai_agent).permit(:name, :persona, instructions_attributes: [ :id, :content, :_destroy ])
     end
 end

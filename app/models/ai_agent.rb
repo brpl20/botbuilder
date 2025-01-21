@@ -6,8 +6,7 @@ class AiAgent < ApplicationRecord
   def to_json(options = {})
     options[:include] = :instructions
     options[:except] ||= []
-    options[:except] += [:created_at, :updated_at]
+    options[:except] += [ :created_at, :updated_at ]
     super(options)
   end
-  
 end

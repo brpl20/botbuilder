@@ -31,7 +31,7 @@ module Authentication
 
     def request_authentication
       session[:return_to_after_authenticating] = request.url
-      redirect_to new_session_path, alert: 'Faça o Login para continuar'
+      redirect_to new_session_path, alert: "Faça o Login para continuar"
     end
 
     def after_authentication_url
@@ -47,7 +47,7 @@ module Authentication
 
     def terminate_session
       Current.session.destroy
-      flash[:notice] = 'Deslogado'
+      flash[:notice] = "Deslogado"
       cookies.delete(:session_id)
     end
 end
