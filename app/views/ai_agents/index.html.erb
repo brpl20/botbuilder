@@ -2,15 +2,37 @@
 
 <% content_for :title, "Ai agents" %>
 
-<h1>Ai agents</h1>
+<h1>Ai Agents</h1>
 
-<div id="ai_agents">
+<%= form_with url: ai_agents_path, method: :get, class: "search-form" do |form| %>
+  <%= form.text_field :search, placeholder: "Search by name or persona" %>
+  <%= form.submit "Search", class: "secondary" %>
+<% end %>
+
+<div id="ai_agents" class="grid" style="--grid-columns: repeat(auto-fit, minmax(300px, 1fr));">
   <% @ai_agents.each do |ai_agent| %>
-    <%= render ai_agent %>
-    <p>
-      <%= link_to "Show this ai agent", ai_agent %>
-    </p>
+    <article class="card" style="display: flex; flex-direction: column; height: 100%;">
+      <header>
+        <h2><%= ai_agent.name %></h2>
+      </header>
+      <p><strong>Persona:</strong> <%= ai_agent.persona %></p>
+      <div style="flex-grow: 1;">
+        <strong>Instructions:</strong>
+        <% if ai_agent.instructions.any? %>
+          <ul>
+            <% ai_agent.instructions.each do |instruction| %>
+              <li><%= instruction.content %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>No instructions available.</p>
+        <% end %>
+      </div>
+      <footer style="margin-top: auto; text-align: center;">
+        <%= link_to "Show this ai agent", ai_agent, class: "button primary" %>
+      </footer>
+    </article>
   <% end %>
 </div>
 
-<%= link_to "New ai agent", new_ai_agent_path %>
+<%= link_to "New ai agent", new_ai_agent_path, class: "primary" %>

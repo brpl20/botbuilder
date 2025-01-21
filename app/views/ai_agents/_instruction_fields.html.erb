@@ -1,6 +1,12 @@
 <div class="nested-fields" data-new-record="<%= f.object.new_record? %>">
-  <%= f.label :content, "Instruction" %>
-  <%= f.text_area :content %>
-  <%= f.hidden_field :_destroy %>
-  <button type="button" data-action="nested-form#remove">Remove</button>
+  <div class="grid">
+    <div>
+      <%= f.label :content, "Instruction" %>
+      <%= f.text_area :content, placeholder: "Enter an instruction" %>
+    </div>
+    <div>
+      <%= f.hidden_field :_destroy %>
+      <button type="button" data-action="nested-form#remove" class="secondary">Remove</button>
+    </div>
+  </div>
 </div>

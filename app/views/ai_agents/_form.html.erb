@@ -1,6 +1,6 @@
-<%= form_with(model: ai_agent) do |form| %>
+<%= form_with(model: ai_agent, class: "container") do |form| %>
   <% if ai_agent.errors.any? %>
-    <div style="color: red">
+    <div role="alert" style="color: red">
       <h2><%= pluralize(ai_agent.errors.count, "error") %> prohibited this ai_agent from being saved:</h2>
       <ul>
         <% ai_agent.errors.each do |error| %>
@@ -10,34 +10,36 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="grid">
+    <div>
+      <%= form.label :name, "Name" %>
+      <%= form.text_field :name, placeholder: "Enter the AI Agent's name" %>
+    </div>
 
-  <div>
-    <%= form.label :persona, style: "display: block" %>
-    <%= form.text_area :persona %>
+    <div>
+      <%= form.label :persona, "Persona" %>
+      <%= form.text_area :persona, placeholder: "Describe the AI Agent's persona" %>
+    </div>
   </div>
 
   <h3>Instructions</h3>
   <div data-controller="nested-form">
     <template data-nested-form-target="template">
-      <%= form.fields_for :instructions, Instruction.new, child_index: 'NEW_RECORD' do |instruction_form| %>
-        <%= render 'instruction_fields', f: instruction_form %>
+      <%= form.fields_for :instructions, Instruction.new, child_index: "NEW_RECORD" do |instruction_form| %>
+        <%= render "instruction_fields", f: instruction_form %>
       <% end %>
     </template>
 
     <div data-nested-form-target="fields">
       <%= form.fields_for :instructions do |instruction_form| %>
-        <%= render 'instruction_fields', f: instruction_form %>
+        <%= render "instruction_fields", f: instruction_form %>
       <% end %>
     </div>
 
-    <button type="button" data-action="nested-form#add">Add Instruction</button>
+    <button type="button" data-action="nested-form#add" class="secondary">Add Instruction</button>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Save AI Agent", class: "primary" %>
   </div>
 <% end %>
