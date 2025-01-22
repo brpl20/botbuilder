@@ -26,8 +26,7 @@ development:
   encoding: unicode  
   database: botbuilder_development
   pool: 5
-  username: brpl
-  password: 'your_password'
+  username: brpl20
   host: localhost
   port: 5432
   # The specified database role being used to connect to PostgreSQL.
