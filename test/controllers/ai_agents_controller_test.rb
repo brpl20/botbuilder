@@ -3,7 +3,7 @@ require "test_helper"
 class AiAgentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @ai_agent = ai_agents(:one)
-    @user = create_user(email_address: "zicatestor@gmail.com", password: "blobor")
+    @user = create_user(email: "zicatestor@gmail.com", password: "blobor")
     log_in_as(@user)
   end
 
