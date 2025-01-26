@@ -3,8 +3,13 @@ require "test_helper"
 class MessagesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @message = messages(:one)
-    @user = users(:one)
-    log_in_as(@user)
+    @user = create_user(email: "test@example.com", password: "password")
+    post session_url, params: { 
+      email_address: @user.email_address,
+      password: "password"
+    }
+    assert_response :redirect
+    follow_redirect!
   end
 
   test "should get index" do

@@ -4,6 +4,9 @@ class AiAgent < ApplicationRecord
   has_many :instructions, dependent: :destroy
   has_one_attached :photo_instruction
   
+  validates :name, presence: true
+  validates :persona, presence: true
+  
   accepts_nested_attributes_for :instructions, allow_destroy: true, reject_if: :all_blank
 
   def to_json(options = {})
