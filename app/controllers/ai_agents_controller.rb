@@ -73,7 +73,20 @@ class AiAgentsController < ApplicationController
   def models_for_provider
     @ai_provider = AiProvider.find(params[:ai_provider_id])
     @ai_models = @ai_provider.ai_models
-    render partial: "ai_model_select", locals: { ai_models: @ai_models }
+    
+    respond_to do |format|
+      format.turbo_stream { 
+        render turbo_stream: turbo_stream.update(
+          "ai-model-select",
+          partial: "ai_model_select",
+          locals: { ai_models: @ai_models }
+        )
+      }
+      format.html { 
+        render partial: "ai_model_select", 
+        locals: { ai_models: @ai_models } 
+      }
+    end
   end
 
   private

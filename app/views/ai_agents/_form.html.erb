@@ -31,11 +31,12 @@
 
     <div>
       <%= form.label :ai_model_id, "AI Model" %>
-      <div id="ai-model-select">
-        <%= form.select :ai_model_id, [], 
+      <%= turbo_frame_tag "ai-model-select" do %>
+        <%= form.select :ai_model_id, 
+            @ai_agent.ai_provider ? options_from_collection_for_select(@ai_agent.ai_provider.ai_models, :id, :name, @ai_agent.ai_model_id) : [], 
             { prompt: "Select an AI Provider first" }, 
-            { class: "form-select", disabled: true } %>
-      </div>
+            { class: "form-select", disabled: !@ai_agent.ai_provider } %>
+      <% end %>
     </div>
 
     <div>
