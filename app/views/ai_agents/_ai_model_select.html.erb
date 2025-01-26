@@ -1,0 +1,4 @@
+<%= select_tag :ai_model_id,
+    options_from_collection_for_select(ai_models, :id, :name),
+    prompt: "Select an AI Model",
+    class: "form-select" %>

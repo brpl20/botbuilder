@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     get 'webhooks/qr_code'
   end
   
-  resources :ai_agents
+  resources :ai_agents do
+    collection do
+      get :models_for_provider
+    end
+  end
   resource :session
   resources :passwords, param: :token
   get "dashboard", to: "home#dashboard", as: :dashboard

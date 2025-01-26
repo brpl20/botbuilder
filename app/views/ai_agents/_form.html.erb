@@ -18,9 +18,24 @@
 
     <div>
       <%= form.label :ai_provider_id, "AI Provider" %>
-      <%= form.collection_select :ai_provider_id, AiProvider.all, :id, :name, 
+      <%= form.collection_select :ai_provider_id, 
+          AiProvider.all, :id, :name, 
           { prompt: "Select an AI Provider" }, 
-          { class: "form-select" } %>
+          { class: "form-select",
+            data: { 
+              controller: "ai-provider",
+              action: "change->ai-provider#loadModels"
+            }
+          } %>
+    </div>
+
+    <div>
+      <%= form.label :ai_model_id, "AI Model" %>
+      <div id="ai-model-select">
+        <%= form.select :ai_model_id, [], 
+            { prompt: "Select an AI Provider first" }, 
+            { class: "form-select", disabled: true } %>
+      </div>
     </div>
 
     <div>

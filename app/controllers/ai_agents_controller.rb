@@ -70,14 +70,21 @@ class AiAgentsController < ApplicationController
     end
   end
 
+  def models_for_provider
+    @ai_provider = AiProvider.find(params[:ai_provider_id])
+    @ai_models = @ai_provider.ai_models
+    render partial: "ai_model_select", locals: { ai_models: @ai_models }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ai_agent
-      @ai_agent = AiAgent.find(params.expect(:id))
+      @ai_agent = AiAgent.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def ai_agent_params
-      params.require(:ai_agent).permit(:name, :persona, :ai_provider_id, instructions_attributes: [ :id, :content, :_destroy ])
+      params.require(:ai_agent).permit(:name, :persona, :ai_provider_id, :ai_model_id, 
+                                     instructions_attributes: [ :id, :content, :_destroy ])
     end
 end
