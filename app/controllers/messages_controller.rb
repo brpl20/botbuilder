@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.includes(:ai_agent, :user)
                       .order(created_at: :desc)
-    
+
     if @messages.empty? && Rails.env.development?
       # Create a sample message in development environment
       Message.create!(

@@ -36,7 +36,7 @@ class MessageTest < ActiveSupport::TestCase
   end
 
   test "should have valid message_type" do
-    valid_types = ['text', 'image', 'video', 'audio', 'document']
+    valid_types = [ "text", "image", "video", "audio", "document" ]
     valid_types.each do |type|
       @message.message_type = type
       assert @message.valid?, "#{type} should be valid"
@@ -44,7 +44,7 @@ class MessageTest < ActiveSupport::TestCase
   end
 
   test "should have valid sender_type" do
-    valid_types = ['user', 'contact', 'bot']
+    valid_types = [ "user", "contact", "bot" ]
     valid_types.each do |type|
       @message.sender_type = type
       assert @message.valid?, "#{type} should be valid"

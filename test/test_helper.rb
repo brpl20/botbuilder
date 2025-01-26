@@ -18,8 +18,8 @@ module ActiveSupport
     end
 
     # Helper method to log in a user
-    def log_in_as(user, password: 'password')
-      post session_url, params: { 
+    def log_in_as(user, password: "password")
+      post session_url, params: {
         email_address: user.email_address,
         password: password
       }

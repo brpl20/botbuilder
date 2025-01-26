@@ -4,7 +4,7 @@ class AiAgentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @ai_agent = ai_agents(:one)
     @user = create_user(email: "zicatestor@gmail.com", password: "blobor")
-    post session_url, params: { 
+    post session_url, params: {
       email_address: @user.email_address,
       password: "blobor"
     }

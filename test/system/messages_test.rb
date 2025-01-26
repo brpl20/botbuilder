@@ -15,7 +15,7 @@ class MessagesTest < ApplicationSystemTestCase
   test "should display message details" do
     visit messages_url
     click_on "View", match: :first
-    
+
     assert_text @message.content
     assert_text @message.chat_id
     assert_text @message.phone_number
@@ -24,7 +24,7 @@ class MessagesTest < ApplicationSystemTestCase
   test "should display no messages message when empty" do
     Message.destroy_all
     visit messages_url
-    
+
     assert_text "No Messages Found"
     assert_text "There are currently no messages in the system."
   end

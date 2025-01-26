@@ -6,18 +6,18 @@ class Message < ApplicationRecord
   validates :message_type, presence: true
   validates :chat_id, presence: true
   validates :phone_number, presence: true
-  
+
   enum :message_type, {
-    text: 'text',
-    image: 'image',
-    video: 'video',
-    audio: 'audio',
-    document: 'document'
-  }, default: 'text'
+    text: "text",
+    image: "image",
+    video: "video",
+    audio: "audio",
+    document: "document"
+  }, default: "text"
 
   enum :sender_type, {
-    user: 'user',
-    contact: 'contact',
-    bot: 'bot'
-  }, default: 'user'
+    user: "user",
+    contact: "contact",
+    bot: "bot"
+  }, default: "user"
 end

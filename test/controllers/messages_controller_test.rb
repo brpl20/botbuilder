@@ -4,7 +4,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @message = messages(:one)
     @user = create_user(email: "test@example.com", password: "password")
-    post session_url, params: { 
+    post session_url, params: {
       email_address: @user.email_address,
       password: "password"
     }
