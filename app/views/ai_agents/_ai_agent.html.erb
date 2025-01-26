@@ -24,4 +24,11 @@
   <% else %>
     <p>No instructions available.</p>
   <% end %>
+
+  <% if ai_agent.photo_instruction.attached? %>
+    <div>
+      <h3>Photo Instructions:</h3>
+      <%= image_tag ai_agent.photo_instruction, width: 300 %>
+    </div>
+  <% end %>
 </div>

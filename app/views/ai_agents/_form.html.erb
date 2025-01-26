@@ -61,6 +61,19 @@
     <button type="button" data-action="nested-form#add" class="secondary">Add Instruction</button>
   </div>
 
+  <div class="grid">
+    <div>
+      <%= form.label :photo_instruction, "Photo Instructions" %>
+      <%= form.file_field :photo_instruction %>
+    </div>
+    <% if form.object.photo_instruction.attached? %>
+      <div>
+        <p>Current photo:</p>
+        <%= image_tag form.object.photo_instruction, width: 200 %>
+      </div>
+    <% end %>
+  </div>
+
   <div>
     <%= form.submit "Save AI Agent", class: "primary" %>
   </div>
