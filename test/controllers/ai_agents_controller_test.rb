@@ -4,11 +4,12 @@ class AiAgentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @ai_agent = ai_agents(:one)
     @user = create_user(email: "zicatestor@gmail.com", password: "blobor")
-    log_in_as(@user)
-  end
-
-  teardown do
-    log_out
+    post session_url, params: { 
+      email_address: @user.email_address,
+      password: "blobor"
+    }
+    assert_response :redirect
+    follow_redirect!
   end
 
   test "should get index" do
