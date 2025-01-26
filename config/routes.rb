@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get :models_for_provider
     end
   end
+  
+  resources :messages, only: [:index, :show]
   resource :session
   resources :passwords, param: :token
   get "dashboard", to: "home#dashboard", as: :dashboard

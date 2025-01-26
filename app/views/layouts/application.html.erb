@@ -48,6 +48,7 @@
           <li><%= link_to 'Home', root_path %></li>
           <li><%= link_to 'Dashboard', dashboard_path %></li>
           <li><%= link_to 'Agentes', ai_agents_path %></li>
+          <li><%= link_to 'Messages', messages_path %></li>
 
       <% if authenticated? %>
         <li> Usuário: <%= Current.user.email_address %></li>

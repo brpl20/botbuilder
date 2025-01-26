@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Messages</h1>
+
+  <table role="grid">
+    <thead>
+      <tr>
+        <th>Chat ID</th>
+        <th>Phone Number</th>
+        <th>Content</th>
+        <th>Type</th>
+        <th>Sender</th>
+        <th>AI Agent</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @messages.each do |message| %>
+        <tr>
+          <td><%= message.chat_id %></td>
+          <td><%= message.phone_number %></td>
+          <td><%= truncate(message.content, length: 50) %></td>
+          <td><%= message.message_type %></td>
+          <td><%= message.sender_type %></td>
+          <td><%= message.ai_agent&.name || 'N/A' %></td>
+          <td><%= message.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td>
+            <%= link_to 'View', message_path(message), class: 'button' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= paginate @messages if @messages.respond_to?(:total_pages) %>
+</div>

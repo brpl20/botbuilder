@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Message Details</h1>
+
+  <article>
+    <header>
+      <p><strong>Chat ID:</strong> <%= @message.chat_id %></p>
+      <p><strong>Phone Number:</strong> <%= @message.phone_number %></p>
+      <p><strong>Type:</strong> <%= @message.message_type %></p>
+      <p><strong>Sender:</strong> <%= @message.sender_type %></p>
+      <p><strong>AI Agent:</strong> <%= @message.ai_agent&.name || 'N/A' %></p>
+      <p><strong>Created At:</strong> <%= @message.created_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
+    </header>
+
+    <div class="message-content">
+      <h3>Content:</h3>
+      <p><%= @message.content %></p>
+    </div>
+  </article>
+
+  <%= link_to 'Back to Messages', messages_path, class: 'button' %>
+</div>
