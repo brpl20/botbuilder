@@ -2,12 +2,12 @@
 service: botbuilder
 
 # Name of the container image.
-image: your-user/botbuilder
+image: brpl20/botbuilder
 
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.0.1
+    - 104.238.164.169
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -19,7 +19,7 @@ servers:
 # Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption.
 proxy:
   ssl: true
-  host: app.example.com
+  host: 104.238.164.169
 
 # Credentials for your image host.
 registry:
