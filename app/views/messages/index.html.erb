@@ -32,5 +32,7 @@
     </tbody>
   </table>
 
-  <%= paginate @messages if @messages.respond_to?(:total_pages) %>
+  <div class="pagination">
+    <%= paginate @messages %>
+  </div>
 </div>
