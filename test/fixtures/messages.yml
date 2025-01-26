@@ -1,7 +1,7 @@
 one:
   chat_id: "chat-123"
   phone_number: "+1234567890"
-  content: "Hello, this is a test message"
+  content: "Test message one"
   message_type: "text"
   sender_type: "user"
   created_at: <%= Time.current %>
@@ -9,9 +9,9 @@ one:
 
 two:
   chat_id: "chat-456"
-  phone_number: "+9876543210"
-  content: "This is another test message"
+  phone_number: "+0987654321"
+  content: "Test message two"
   message_type: "text"
-  sender_type: "contact"
+  sender_type: "user"
   created_at: <%= Time.current %>
   updated_at: <%= Time.current %>

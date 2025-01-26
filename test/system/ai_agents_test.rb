@@ -48,13 +48,11 @@ class AiAgentsTest < ApplicationSystemTestCase
 
   # Login helper
   def log_in_as(user)
-    visit "/session/new" # Use your custom login path
+    visit "/session/new"
     fill_in "email_address", with: user.email_address
     fill_in "password", with: "blobor"
-    click_on "Log in" # Replace with your login button text
-    assert_text "Logado" # Confirm login
-    puts user.email_address
-    puts "usuário logado!"
+    click_on "Log in"
+    assert_text "Logged in successfully"
   end
 
   # Logout helper
