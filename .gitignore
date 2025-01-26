@@ -12,6 +12,8 @@
 !.env.example
 .env
 env
+.kamal/
+.kamal/secrets
 
 # Ignore all logfiles and tempfiles.
 /log/*
