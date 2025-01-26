@@ -17,6 +17,13 @@
     </div>
 
     <div>
+      <%= form.label :ai_provider_id, "AI Provider" %>
+      <%= form.collection_select :ai_provider_id, AiProvider.all, :id, :name, 
+          { prompt: "Select an AI Provider" }, 
+          { class: "form-select" } %>
+    </div>
+
+    <div>
       <%= form.label :persona, "Persona" %>
       <%= form.text_area :persona, placeholder: "Describe the AI Agent's persona" %>
     </div>

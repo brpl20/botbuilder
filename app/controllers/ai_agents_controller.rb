@@ -78,6 +78,6 @@ class AiAgentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ai_agent_params
-      params.require(:ai_agent).permit(:name, :persona, instructions_attributes: [ :id, :content, :_destroy ])
+      params.require(:ai_agent).permit(:name, :persona, :ai_provider_id, instructions_attributes: [ :id, :content, :_destroy ])
     end
 end
