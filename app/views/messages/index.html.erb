@@ -1,20 +1,21 @@
 <div class="container">
   <h1>Messages</h1>
 
-  <table role="grid">
-    <thead>
-      <tr>
-        <th>Chat ID</th>
-        <th>Phone Number</th>
-        <th>Content</th>
-        <th>Type</th>
-        <th>Sender</th>
-        <th>AI Agent</th>
-        <th>Created At</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
+  <% if @messages.any? %>
+    <table role="grid">
+      <thead>
+        <tr>
+          <th>Chat ID</th>
+          <th>Phone Number</th>
+          <th>Content</th>
+          <th>Type</th>
+          <th>Sender</th>
+          <th>AI Agent</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
       <% @messages.each do |message| %>
         <tr>
           <td><%= message.chat_id %></td>
@@ -30,6 +31,12 @@
         </tr>
       <% end %>
     </tbody>
-  </table>
+    </table>
+  <% else %>
+    <article>
+      <header>No Messages Found</header>
+      <p>There are currently no messages in the system.</p>
+    </article>
+  <% end %>
 
 </div>
