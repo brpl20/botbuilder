@@ -9,6 +9,8 @@
 
 # Ignore all environment files.
 /.env*
+.env
+env
 /config/database.yml
 
 # Ignore all logfiles and tempfiles.
