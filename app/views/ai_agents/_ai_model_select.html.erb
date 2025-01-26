@@ -1,8 +1,6 @@
-<%= turbo_frame_tag "ai-model-select" do %>
-  <select name="ai_agent[ai_model_id]" class="form-select">
-    <option value="">Select an AI Model</option>
-    <% ai_models.each do |model| %>
-      <option value="<%= model.id %>"><%= model.name %></option>
-    <% end %>
-  </select>
-<% end %>
+<select name="ai_agent[ai_model_id]" class="form-select">
+  <option value="">Select an AI Model</option>
+  <% ai_models.each do |model| %>
+    <option value="<%= model.id %>"><%= model.name %></option>
+  <% end %>
+</select>
